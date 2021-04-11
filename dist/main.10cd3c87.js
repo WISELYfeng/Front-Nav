@@ -178,8 +178,10 @@ $('.addButton').on('click', function () {
 
   if (lastLen === hashMap.length) {
     render();
+    $('.success-msg').fadeIn(1000, 'linear', function () {
+      $('.success-msg').fadeOut(1000);
+    });
   } else {
-    // $('.message').addClass('.colorAnimate')
     $('.message').fadeIn(2000, 'linear', function () {
       $('.message').fadeOut(1000);
     });
@@ -187,7 +189,6 @@ $('.addButton').on('click', function () {
 });
 
 window.onbeforeunload = function () {
-  console.log('close');
   var urlString = JSON.stringify(hashMap);
   localStorage.setItem('urlString', urlString);
 };
@@ -202,5 +203,6 @@ $(document).on('keypress', function (e) {
   }
 });
 $('.message').hide();
+$('.success-msg').hide();
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.9ebf7cfc.js.map
+//# sourceMappingURL=main.10cd3c87.js.map

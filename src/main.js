@@ -69,8 +69,10 @@ $('.addButton').on('click',()=>{
     hashMap = uniqueArray(hashMap)
     if( lastLen === hashMap.length){
         render()
+        $('.success-msg').fadeIn(1000,'linear', () => {
+            $('.success-msg').fadeOut(1000)
+        })
     }else{
-        // $('.message').addClass('.colorAnimate')
         $('.message').fadeIn(2000,'linear', () => {
             $('.message').fadeOut(1000)
         })
@@ -80,7 +82,6 @@ $('.addButton').on('click',()=>{
 
 
 window.onbeforeunload = () => {
-    console.log('close')
     const urlString = JSON.stringify(hashMap)
     localStorage.setItem('urlString',urlString)
 }
@@ -95,3 +96,4 @@ $(document).on('keypress', (e) => {
 })
 
 $('.message').hide()
+$('.success-msg').hide()
